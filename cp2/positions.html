@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Darons Codeurs: Réalisations</title>
+        <meta name="description" content="jeune startup développeurs full-stack colombes 92">
+        <meta name="author" content="Jérémy Monlouis">
+        <link rel="icon" href="/colombes/cp2/pics/logo.svg">
+        <style> 
+            div[id^=div] {
+                width: 300px;
+                height: 300px;
+                border: solid black 3px;
+                margin: 10px;
+                padding: 10px;
+            }
+
+            #div1 {
+                position: relative;
+                background-color: red;
+            }
+
+            #div1>.box {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            #div2 {
+                background-color: green;
+                position: relative;
+                top: 100px;
+                left: 100px;
+                overflow: auto;
+            }
+
+            #div2>* {
+                display: inline-block;
+            }
+
+            #div3 {
+                background-color: blue;
+                position: fixed;
+                top: 0;
+                right: 0;
+            }
+
+            .box {
+                width: 50px;
+                height: 50px;
+                border: black dotted 1px;
+                border-radius: 25px;
+                background-color: yellow;
+                margin: 5px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+    <div id="div1">
+        <div class="box"></div>
+    </div>
+    <div id="div2">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div id="div3"></div>
+</body>
+</html>

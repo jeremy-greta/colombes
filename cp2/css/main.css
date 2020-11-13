@@ -4,26 +4,27 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-html, body {
+/* html, body {
     width: 100%;
     height: 100%;
-}
+} */
 
 * {
     margin: 0;
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     background: url(../pics/fond_tonton.jpg);
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* WRAPPER */
 
 #wrapper {
     background-color: rgba(255, 255, 255, .5);
-    height: 100%;
+    /* height: 100%; */
 }
 
 #wrapper>* {
@@ -52,9 +53,33 @@ body {
     width: 80%;
 }
 
+@keyframes neon {
+    from {
+        text-shadow: 0 0 1rem blanchedalmond;
+        transform: translate(-5%);
+    }
+    20% {
+        text-shadow: 0 0 1rem burlywood;
+    }
+    40% {
+        text-shadow: 0 0 1rem coral;
+    }
+    60% {
+        text-shadow: 0 0 1rem darkkhaki;
+    }
+    80% {
+        text-shadow: 0 0 1rem cornsilk;
+    }
+    to {
+        text-shadow: 0 0 1rem floralwhite;
+        transform: translate(0);
+    }
+}
+
 #name h1 {
     height: 5rem;
     line-height: 5rem;
+    animation: neon 10s ease-in-out infinite alternate;
 }
 
 /* MENU */
@@ -82,4 +107,128 @@ body {
     color: bisque;
     background-color: #ffaa56;
 
+}
+
+/* TEAM MEMBERS */
+
+
+#emps{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.emp {
+    text-align: center;
+    width: 230px;
+    height: 230px;
+}
+
+.member {
+    border-style: ridge;
+    border-width: .75rem;
+    border-radius: 50%;
+    width: 150px;
+    transition: all .5s;
+}
+
+.member:hover {
+    border-color: black;
+    /* width: calc(150px*1.1); */
+    /* transform: scale(1.1);  */
+}
+
+.girl:hover {
+    transform: scale(1.1) rotate(-360deg);
+    /* transform: rotate(-360deg);
+    transform: scale(1.1); */
+}
+.boy:hover {
+    transform: scale(1.1) rotate(360deg);
+    /* transform: rotate(360deg);
+    transform: scale(1.1); */
+}
+
+.girl {
+    border-color: pink;
+}
+
+.boy {
+    border-color:  blue;
+}
+
+/* MULTIMEDIA */
+
+#media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#media .interview {
+    width: 30%;
+}
+
+#conv {
+    width: 100%;
+}
+
+#media audio {
+    width: 100%;
+}
+
+#media h2 {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* FOOTER */
+
+#bottom {
+    background-color: black;
+    color: white;
+}
+
+#bottom ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bottom .level1 {
+    display: flex;
+    justify-content: center;
+}
+
+#bottom .level1>li {
+    margin: 1rem 0;
+    padding: 0 2rem;
+    border-left: dotted #fff .25rem;
+}
+
+#bottom .level1>li:first-child {
+    border-left: none;
+}
+
+#bottom h2 {
+    font-variant: small-caps;
+    margin-bottom: .5rem;
+}
+
+#bottom a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* FORM */
+
+form div {
+    margin: .5rem 0;
+}
+
+form div>*:first-child {
+    display: inline-block;
+    width: 25%;
+    font-weight: bold;
+    text-align: right;
 }

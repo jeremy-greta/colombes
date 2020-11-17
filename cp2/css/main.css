@@ -226,9 +226,17 @@ form div {
     margin: .5rem 0;
 }
 
-form div>*:first-child {
+form>fieldset>div>*:first-child {
     display: inline-block;
     width: 25%;
     font-weight: bold;
     text-align: right;
 }
+form>fieldset>fieldset>div {
+    /* width: 9rem; */
+    margin-left: 25%;
+ }
+  
+ #exp {
+    width: 2rem;
+ }

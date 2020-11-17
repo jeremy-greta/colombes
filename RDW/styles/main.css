@@ -1,3 +1,10 @@
-body {
-    background-color: green;
+@import url('mobile.css') screen and (max-width: 967px);
+
+@media screen and (min-width: 968px){
+
+    body {
+        background-color: green;
+    }
+
+
 }

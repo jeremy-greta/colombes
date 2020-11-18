@@ -29,6 +29,9 @@ aside{
     max-height: 10vh; */
     text-align: center;
 }
+.logo>img{
+    width: 10vw;
+}
 nav{
     width: 60%;
     margin: auto;
@@ -40,4 +43,62 @@ nav>ul>li>a{
     display: inline-block;
     width: 100%;
     text-align: center;
+}
+form{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+footer p {
+    text-align: center;
+}
+
+
+/* règles pour les écrans de largeur >= 768px */
+
+@media screen and (min-width: 768px){
+    aside {
+        display: block;
+    }
+
+    nav{
+        width: 40%;
+    }
+
+    nav>ul{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+}
+
+
+/* règles pour les écrans de largeur >= 992px */
+
+@media screen and (min-width: 992px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav{
+        width: 100%;
+    }
+
+    form{
+        width: 100%;
+    }
+    
+    section{
+        display: flex;
+        align-items: center;
+    }
+    main{
+        flex: 7 1 0;
+    }
+    aside{
+        flex: 3 1 0;
+    }
+
 }

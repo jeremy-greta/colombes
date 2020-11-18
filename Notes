@@ -1,0 +1,14 @@
+GITHUB
+
+Mettre à jour le dépôt local:
+
+cd /var/www/html/colombes
+sudo git init
+sudo git pull
+
+
+CHMOD
+
+tous les sous-dossiers/fichiers
+
+sudo chmod -R 777 tondossier

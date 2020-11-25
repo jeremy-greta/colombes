@@ -66,36 +66,30 @@ if (condition) {
 
 // Petit jeu "devine un nombre"
 
-// V1
-let rejouer;
-fin:
-while(rejouer!="non") {
+"use strict";
+let rejouer = true;
+while(rejouer) {
     const résultat = Math.floor(Math.random() * (11 - 0) + 0);
-    let saisie = prompt("Choisir un nombre entre 0 et 10:");
-    while (résultat != saisie) {
+    let saisie = prompt("Choisir un nombre entre 0 et 10:\n[ECHAP] ou Annuler pour quitter");
+    while (résultat != saisie && saisie != null) {
         if (saisie > 10) {
             saisie = prompt("Entre 0 et 10!!");
+        } else if (isNaN(saisie)) {
+            saisie = prompt("Ce n'est pas un nombre!!");
         } else if (saisie > résultat) {
             saisie = prompt("Trop Grand!");
-        } else if (saisie === null) {
-            alert("Au revoir!");
-            //rejouer = "non"
-          	break fin;
         } else if (saisie < résultat) {
             saisie = prompt("Trop petit!");
-        }
+        } 
     }
-    if ( confirm( "Rejouer?" ) ) {
-        continue;
-    } else {
-        rejouer="non";
-        alert("Au revoir!");
-    }
+    if (saisie == null) {
+        rejouer = false;
+        alert("Vous avez quitté\n\n     Au revoir!")
+    }else if ( !confirm( "\t  BRAVO!\nVoulez-vous rejouer?" ) ) {
+            rejouer = false;
+            alert("Au revoir!");
 }
-
-
-// V2
-
+}
 
 
 //BOUCLE
@@ -114,4 +108,72 @@ do {
 for (let index = 0; index < array.length; index++) {
     const element = array[index];
     
+}
+
+
+//SWITCH
+
+let choix = 2;
+switch (choix) {
+    case 0:
+        console.log("case 0");
+    case 1:
+        console.log("case 1");
+    case 2:
+        console.log("case 2");
+    case 3:
+        console.log("case 3");
+    default:
+        console.log("default");
+}
+
+switch (choix) {
+    case 0:
+        console.log("case 0");
+        break;
+    case 0:
+        console.log("case 0");
+        break;
+
+    default:
+        break;
+}
+
+//FOR
+
+let vari = 0
+while (vari <= 20) {
+    console.log(vari);    
+    vari = vari +2;
+}
+
+for (let vari = 0; vari <= 20; vari+=2) {
+    console.log(vari);  
+}
+
+
+//FONCTION
+
+function max(a,b) {
+    let resultat;
+    if (a>b) {
+        resultat = a;
+    } else {
+        resultat = b;
+    }
+    return resultat;
+}
+
+console.log("Le max est: "+max(0,1));
+
+function max(a,b) {
+    if (a>b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+function max(a,b) {
+    return((a>b)?a:b);
 }

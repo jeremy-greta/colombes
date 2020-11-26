@@ -72,7 +72,7 @@ while(rejouer) {
     const résultat = Math.floor(Math.random() * (11 - 0) + 0);
     let saisie = prompt("Choisir un nombre entre 0 et 10:\n[ECHAP] ou Annuler pour quitter");
     while (résultat != saisie && saisie != null) {
-        if (saisie > 10) {
+        if (saisie > 10 || saisie < 0) {
             saisie = prompt("Entre 0 et 10!!");
         } else if (isNaN(saisie)) {
             saisie = prompt("Ce n'est pas un nombre!!");
@@ -164,10 +164,10 @@ function max(a,b) {
     return resultat;
 }
 
-console.log("Le max est: "+max(0,1));
+console.log("Le max est: " + max(0, 1));
 
-function max(a,b) {
-    if (a>b) {
+function max(a, b) {
+    if (a > b) {
         return a;
     } else {
         return b;
@@ -177,3 +177,99 @@ function max(a,b) {
 function max(a,b) {
     return((a>b)?a:b);
 }
+
+//version courte
+const max = function (a,b) {
+    return((a>b)?a:b);
+}
+
+//EXO
+
+const mult = function(valeur1,valeur2){
+    return valeur1*valeur2;
+}
+
+mult(2,5)
+
+function puiss(x, y) {
+    let resultat = 1
+    for (let i = 0; i < y; i++) {
+        resultat = mult(resultat, x);
+    }
+    return resultat
+}
+
+puiss(2,8);
+
+//Fontion simplifié
+
+const mult = (x,y) => x*y; //(x,y) => x*y  literal de fonction
+//pas besoin de "return"
+mult(2,5)
+
+//Exemple
+const logPerso = (prefixe) => (message) => console.log(prefixe + message);
+//ou
+const logPerso = prefixe => message => console.log(prefixe + message);
+const myApplog = logPerso("[myApp] ");
+myApplog("Hello!");
+
+
+//TABLEAUX
+
+const t=[1,2,3,4];     //assignation d'un tableau
+t.length               //nombre d'index du tableau
+const premier = t[0];  //assignation de la première valeur du tableau dans une variable
+t[1]=10;               //modification de la 2ème valeur du tableau
+t.push(11);            //ajout d'une nouvelle valeur à la suite du tableau
+
+//EXO1
+
+//v1
+const t = ["Hello", "chacun", "chacune", "!"];
+for (let i = 0; i < t.length; i++) {
+    console.log(t[i]);    
+};
+
+//v2
+function lister(tab){
+    for (let i = 0; i < tab.length; i++) {
+        console.log(tab[i]);    
+    };
+};
+const t = ["Hello", "chacun", "chacune", "!"];
+lister(t);
+
+//v3
+const lister = tab => {
+    for (let i = 0; i < tab.length; i++) {
+        console.log(tab[i]);
+    }
+};
+const t = ["Hello", "chacun", "chacune", "!"];
+lister(t);
+
+
+//EXO2
+
+//v1
+const lister_x2 = tab => {
+    let tab2 = [];
+    for (let i = 0; i < tab.length; i++) {
+        tab2.push(tab[i] *2);
+    }
+    console.log(tab2);
+};
+const t = [1,2,3,4,5,6,7,8,9,10];
+lister_x2(t);
+
+//v2
+const lister_xX = (tab,coef) => {
+    let tab2 = [];
+    for (let i = 0; i < tab.length; i++) {
+        tab2.push(tab[i] *coef);
+    }
+    console.log(tab2);
+};
+const t = [1,2,3,4,5,6,7,8,9,10];
+lister_xX(t,5);

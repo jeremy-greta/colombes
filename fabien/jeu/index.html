@@ -1,0 +1,175 @@
+<!-------------------- 
+JEU: DEVINE UN NOMBRE
+JEREMY MONLOUIS
+GRETA92 
+--------------------->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu - Devine un nombre</title>
+
+<style>
+    body,
+    .style2{
+        text-align: center;
+    }
+
+    section{
+        display: flex;
+        justify-content: center;
+    }
+
+    section>div{
+        margin: 0 20px;
+        justify-content: center;
+
+    }
+
+    /* MARGES */
+    p {margin-top: 0;}
+    #titleHistory{margin-bottom: 0;}
+    #attemptHistory{margin: 0 4.5rem;}
+    body{margin-top: 35vh;}
+
+    .bcLose{
+        background-color: red;
+    }
+
+    .bcWin{
+        background-color: green;
+    }
+
+    .stylebtnplay{
+        height: 3rem;
+        background: blue;
+        color: white;
+        font-weight: bold;
+    }
+    .stylebtnreset{
+        background: grey;
+    }
+
+    .style2{
+        width: 2Rem;
+    }
+    box{
+        font-weight: bold;
+        margin: 1rem;
+    }
+    #tente{text-align: center;}
+
+</style>
+</head>
+<body>
+    <h1 id="title">Choisir un nombre entre 0 et 10</h1>
+    <section>
+        <div >
+            <p>Il te reste <span>4</span> essais  </p>
+            <input class="style2" type="number" id="numberChoice" name="amount" value="0" min="0" max="10">
+            <input class="stylebtnplay" type="button" value="Jouer" onclick="play()">
+            <input class="stylebtnreset" type="button" value="Reset" onclick="reset()">
+            <br><box></box>
+        </div>
+        <div id="tente">
+            <span> Nombre de tentatives: </span>
+            <input class="style2" type="number" id="attempt" name="amount" value="4" min="0" max="9" onchange="setAttempt()">
+            <p id="titleHistory">Dernière(s) tentative(s)</p>
+            <table id="attemptHistory"></table>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+<script>
+    // SELECTEURS
+    let body = document.querySelector("body");
+    let tblHistory = document.getElementById('attemptHistory');
+    let box = document.querySelector("box");
+    let h1 = document.querySelector("h1");
+    let attemptCounter = 0;
+    reset()
+
+    function resultReset() {
+        result = Math.floor(Math.random() * (11 - 0) + 0);
+    console.log("Le résultat est : "+result);
+    }
+
+    function setAttempt() {
+        attempt= document.getElementById('attempt').value;
+        document.querySelector("p span").innerText = attempt;
+    }
+
+    function reset(){
+        let deleteCounter = tblHistory.lenght
+        resultReset();
+        setAttempt()
+        box.innerText = "";
+        body.classList.contains("bcWin") ? body.classList.remove('bcWin') : body.classList.remove('bcLose');
+        h1.innerText = "Choisir un nombre entre 0 et 10";
+        for (let i = 0; i < attemptCounter; i++) {
+            tblHistory.deleteRow(-1);
+        }
+        attemptCounter = 0
+    }
+
+    function askRejouer() {
+        setTimeout(() => {
+                    confirm("Rejouer?")?reset():goOut();
+            }, 500);
+
+    }
+
+    function finish() {
+        if (attempt == 0 && numberChoice.value != result) {
+
+            h1.innerText = "TU AS PERDU!!! :(";
+            body.classList.add('bcLose');
+            box.innerText = "";
+            askRejouer();
+        }
+    }
+
+    function play() {
+        let numberChoice = document.getElementById('numberChoice').value;
+        
+        if ((numberChoice>result) || (numberChoice<result)){
+            body.classList.add('bcLose');
+            setTimeout(() => {
+                body.classList.remove('bcLose');
+            }, 700);
+
+            if (numberChoice>result) {
+                box.innerText = "Trop Grand!";
+            } else if (numberChoice<result) {
+                box.innerText = "Trop Petit!";
+            }
+
+        }else if (numberChoice==result) {
+            box.innerText = "";
+            h1.innerText = "TU AS GAGNE! BRAVO!!!";
+            body.classList.add('bcWin');
+            askRejouer();
+            
+        }
+
+        attempt--;
+        document.querySelector("p span").innerText = attempt;
+
+
+        attemptCounter++
+        let tbl = document.getElementById('attemptHistory');
+        let row = tbl.insertRow(0); 
+        let cell1=row.insertCell();
+        let cell2=row.insertCell();
+        cell1.innerHTML = attemptCounter + '. ';
+        cell2.innerHTML = numberChoice;
+
+        finish()
+        
+    }
+    
+</script>
+</body>
+</html>

@@ -3,7 +3,6 @@ window.addEventListener(
     'load',
     function(){
         fillTable();
-        avgAge();
     },
     false
 );
@@ -11,16 +10,22 @@ window.addEventListener(
 // Fonction qui remplit le tableau HTML avec un array
 
 function fillTable() {
+    // pour chaque membre de l'array MEMBERS
+    
     let oRow, oCell;
-    for (let i = 0; i < members.length; i++) {        // pour chaque membre de l'array MEMBERS
-        oRow = document.createElement('tr');          // creation du TR
+    let iSum = 0;
+    for (let i = 0; i < members.length; i++) {
+        // creation du TR
+        oRow = document.createElement('tr');
         // création de la 1ère TD
         oCell = document.createElement('td');         
         oCell.textContent = members[i].fname;
         oRow.appendChild(oCell);
         // création de la 2ème TD
+        iSum += members[i].age
         oCell = document.createElement('td');
         oCell.textContent = members[i].age;
+        oCell.contentEditable = true;
         oRow.appendChild(oCell);
         // création de la 3ème TD
         oCell = document.createElement('td');
@@ -42,10 +47,9 @@ function fillTable() {
         // Rattache la TR au TBODY
         document.getElementById('tblBody').appendChild(oRow)
     }
+    // affiche la moyenne des ages
+    document.getElementById('avgAge').textContent = Math.round (iSum/ members.length);
 }
 
 
-function avgAge() {
-    let avgcalc
-    document.getElementById('avgAge').textContent = 'test'
-}
+// ajoutez un bouton pour recalculer les moyennes.
